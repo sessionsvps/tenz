@@ -34,30 +34,30 @@ async def getMessagesFromGroup(client, group_id):
         return []
 async def logUserBot():
     load_dotenv()
-    api_id = int(28256100)
-    api_hash = "67536904dfbf147fc7f87559ff966bd8"
-    phone_number = "51931196243"
+    api_id = int(22885409)
+    api_hash = "231dee303ac43b0ce0b0906de77ca5df"
+    phone_number = "51933134824"
     session_name = "bot_spammer"
     client = TelegramClient(session_name, api_id, api_hash)
     await client.connect()
     if not await client.is_user_authorized():
         await client.send_code_request(phone_number)
         await client.sign_in(phone_number, input('Ingrese el código de verificación: '))
-    await client.send_message("@spmtenz", f'<b>Bot encendido</b>', parse_mode="HTML")
-    spammer_group = int("-4598235935")
+    await client.send_message("@spmtenz2", f'<b>Bot encendido</b>', parse_mode="HTML")
+    spammer_group = int("-4532673979")
 
     while True:
         groups_info = await getListOfGroups(client)
         messages_list = await getMessagesFromGroup(client, spammer_group)
             
         try:
-            await client.send_message("@spmtenz", f"<b>CANTIDAD DE MENSAJES CONSEGUIDOS PARA PUBLICAR</b> <code>{len(messages_list)-1}</code>",parse_mode="HTML")
+            await client.send_message("@spmtenz2", f"<b>CANTIDAD DE MENSAJES CONSEGUIDOS PARA PUBLICAR</b> <code>{len(messages_list)-1}</code>",parse_mode="HTML")
         except:
             pass
             
         try:
             for i in groups_info:
-                if i['group_name'] not in ["Spam 2024","RESPALDO🇵🇪BINS PERU","➳𝒀𝑨𝑷𝑬 𝑫𝑬 𝑬𝑺𝑻𝑨𝑭𝑨𝑫𝑶𝑹𝑬𝑺 ✧","QUEMANDO ESTAFADORES","𝐏𝐄𝐑Ú 𝐀𝐘𝐔𝐃𝐀","Referencias Elmer 💸","🎭 CANAL MUNDO STREAMING PERÚ 🇵🇪","TU MARKETPLACE"]:
+                if i['group_name'] not in ["Spam 2024","Spam","RESPALDO🇵🇪BINS PERU","➳𝒀𝑨𝑷𝑬 𝑫𝑬 𝑬𝑺𝑻𝑨𝑭𝑨𝑫𝑶𝑹𝑬𝑺 ✧","QUEMANDO ESTAFADORES","𝐏𝐄𝐑Ú 𝐀𝐘𝐔𝐃𝐀","Referencias Elmer 💸","🎭 CANAL MUNDO STREAMING PERÚ 🇵🇪","TU MARKETPLACE"]:
                     j=0
                     for message_spam in messages_list:
                         j+=1
@@ -65,13 +65,13 @@ async def logUserBot():
                         try:
                             await client.send_message(i["group_id"], message_spam)
                         except Exception as error:
-                            await client.send_message("@spmtenz", f'<b>Error enviando mensajes a {i["group_id"]}</b> - <code>{i["group_name"]}<code>\nCausa:{error}',parse_mode="HTML")
+                            await client.send_message("@spmtenz2", f'<b>Error enviando mensajes a {i["group_id"]}</b> - <code>{i["group_name"]}<code>\nCausa:{error}',parse_mode="HTML")
                             resultado = False
                         if resultado:
-                            await client.send_message("@spmtenz", f'<b>Mensaje enviado a {i["group_id"]}</b> - <code>{i["group_name"]}</code>',parse_mode="HTML")  
+                            await client.send_message("@spmtenz2", f'<b>Mensaje enviado a {i["group_id"]}</b> - <code>{i["group_name"]}</code>',parse_mode="HTML")  
                         await asyncio.sleep(10)
                         if j==1: break
-            await client.send_message("@spmtenz", f'<b>RONDA ACABADA</b>', parse_mode="HTML")
+            await client.send_message("@spmtenz2", f'<b>RONDA ACABADA</b>', parse_mode="HTML")
             await asyncio.sleep(100) 
         except:
             pass
